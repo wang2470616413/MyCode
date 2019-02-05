@@ -5,7 +5,7 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 15;
-const int M = 10185；
+const int M = 10185;
 int data[N][N], dp[N][N][M];
 int n,m,C;
 int sx,sy,ex,ey;
