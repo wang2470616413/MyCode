@@ -24,13 +24,13 @@ int main()
 	scanf("%d %d %d %d",&sx,&sy,&ex,&ey);
 	mmset(dp,-0x3f);
 	dp[sx][sy][0] = 0;
-	for(int k = 1; k <= M; i++)
+	for(int k = 1; k <= M; k++)
 	{
 		for(int i = 1; i <= n; i++)
 		{
 			for(int j = 1; j <= m; j++)
 			{
-				dp[i][j][k] = max(max(max(dp[i-1][j][k-1],dp[i+1][j][k-1]),max(dp[i][j-1][k-1],dp[i][j+1][k-1])),dp[i][j][k-1) + (k % data[i][j] == 0 ? 1 : 0);
+				dp[i][j][k] = max(max(max(dp[i-1][j][k-1],dp[i+1][j][k-1]),max(dp[i][j-1][k-1],dp[i][j+1][k-1])),dp[i][j][k-1]) + (k % data[i][j] == 0 ? 1 : 0);
 			}	
 		}
 	}
