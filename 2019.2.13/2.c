@@ -21,10 +21,6 @@ struct node
 	{
 		return str == b.str;
 	}
-	node& operator + (node& b)
-	{
-		str+= b.str;
-	}
 };
 node data[N];
 int n,numb = 1;
@@ -44,7 +40,7 @@ int main()
 	while(T--)
 	{
 		cin>>n;
-		for(int i = 1; i<= n; i++)
+		for(int i = 1; i <= n; i++)
 		{
 			cin>>data[i].str;
 		}
@@ -67,21 +63,13 @@ int main()
 			temp.str = "";
 			for(int j = 1; j <= n; j++)if(j != i && j != index)
 			{
-				temp = temp + data[j];
+				temp.str += data[j].str;
 			}
 			res1 = max(temp,res1);
 		}
 		cout<<"Case #"<<numb++<<": "<<res1.str<<endl;
 	}
 	
-
-
-
-
-
-
-
-
 	return 0;
 }
 
