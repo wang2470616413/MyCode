@@ -33,26 +33,26 @@ int main()
 			scanf("%d",&data[i]);
 		}
 		data[0] = 0, data[n+1] = L;
+		sort(data, data + 1 + n + 1);
+
 		int a = 0, b = 2 * L;
 		int m;
 		while(a < b)
 		{
 			m = (a + b) / 2;
 			int key = count1(m);
-			if(key >= k)
+			if(key > k)
 			{
-				a = m;
+				b = m - 1;
 			}
 			else 
 			{
-				b = m;
+				a = m + 1;
 			}
 
 		}
-		printf("1\n");
 
-
-		printf("%d\n",m);
+		printf("%d\n",b);
 
 
 	}
