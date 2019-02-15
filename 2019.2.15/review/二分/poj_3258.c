@@ -37,7 +37,7 @@ int main()
 
 		int a = 0, b = 2 * L;
 		int m;
-		while(a < b)
+		while(a <= b)
 		{
 			m = (a + b) / 2;
 			int key = count1(m);
