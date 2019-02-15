@@ -35,7 +35,7 @@ int main()
 		data[0] = 0, data[n+1] = L;
 		sort(data, data + 1 + n + 1);
 
-		int a = 0, b = 2 * L;
+		int a = 0, b =  L;
 		int m;
 		while(a <= b)
 		{
