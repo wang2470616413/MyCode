@@ -50,7 +50,7 @@ int main()
 		sort(sortData + 1, sortData + 1 + n);
 		int index1 = 0,index2 = 0;
 		node str1,str2;
-		cout<<str1.str <<" "<< str1.index<<endl;
+//		cout<<str1.str <<" "<< str1.index<<endl;
 		for(int i = 1; i <= n; i++)
 		{
 			node temp;
