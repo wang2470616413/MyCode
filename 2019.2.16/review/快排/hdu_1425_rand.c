@@ -6,6 +6,12 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 1e6 + 5;
+void Swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
 void fast_sort(int a, int b, int* data)
 {
 	if(a >= b)
@@ -13,7 +19,8 @@ void fast_sort(int a, int b, int* data)
 		return;
 	}
 	int index = (rand() % (b - a)) + a;
-	int i = a, j = b, key = data[index];
+	Swap(data[index],data[a]);
+	int i = a, j = b, key = data[a];
 	while(i < j)
 	{
 		while(data[j] >= key && i < j)
@@ -26,13 +33,11 @@ void fast_sort(int a, int b, int* data)
 		}
 		if(data[i] > key && data[j] < key && i < j)
 		{
-			int temp = data[i];
-			data[i] = data[j];
-			data[j] = temp;
+			Swap(data[i],data[j]);
 		}
+
 	}
-	data[index] =  data[j];
-	data[j] = key;
+	Swap(data[a],data[j]);
 	fast_sort(a, j - 1, data);
 	fast_sort(j + 1, b, data);
 	
