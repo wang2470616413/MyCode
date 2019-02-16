@@ -47,11 +47,11 @@ int main()
 			scanf("%d",&data[i]);
 		}
 		fast_sort(1,n,data);
-		for(int i = n; i > n - m - 1; i--)
+		for(int i = n; i > n - m + 1; i--)
 		{
 			printf("%d ",data[i]);
 		}
-		printf("%d\n",data[n - m - 1]);
+		printf("%d\n",data[n - m + 1]);
 	}
 
 
