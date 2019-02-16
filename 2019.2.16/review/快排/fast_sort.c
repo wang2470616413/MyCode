@@ -15,11 +15,11 @@ void fastSort(int a, int b, int* data)
 	int key = data[a];
 	while(i < j)
 	{
-		if(data[j] >= key)
+		while(data[j] >= key && i < j)
 		{
 			j--;
 		}
-		if(data[i] <= key)
+		while(data[i] <= key && i < j)
 		{
 			i++;
 		}
