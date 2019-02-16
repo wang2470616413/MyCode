@@ -40,18 +40,19 @@ int data[N];
 int main()
 {
 	int n,m;
-	scanf("%d %d",&n,&m);
-	for(int i = 1; i <= n; i++)
+	while(~scanf("%d %d",&n,&m))
 	{
-		scanf("%d",&data[i]);
+		for(int i = 1; i <= n; i++)
+		{
+			scanf("%d",&data[i]);
+		}
+		fast_sort(1,n,data);
+		for(int i = n; i > n - m - 1; i--)
+		{
+			printf("%d ",data[i]);
+		}
+		printf("%d\n",data[n - m - 1]);
 	}
-	fast_sort(1,n,data);
-	for(int i = n; i > n - m; i--)
-	{
-		printf("%d ",data[i]);
-	}
-	printf("\n");
-
 
 
 
