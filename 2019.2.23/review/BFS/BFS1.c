@@ -31,6 +31,7 @@ int main()
 	scanf("%d",&T);
 	while(T--)
 	{
+		mmset(status,0);
 		scanf("%d %d %d %d %d %d",&s[1],&s[2],&s[3],&e1,&e2,&e3);
 		node data[N];
 		queue <node> que;
