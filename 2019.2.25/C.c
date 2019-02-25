@@ -20,7 +20,8 @@ struct node
 	};
 };
 int dir[4][2] = {1,0,0,1,-1,0,0,-1};
-int data[N][N],mark[N][N];
+char data[N][N];
+int mark[N][N];
 vector <node> aux1;
 vector <node> aux2;
 int n,sx,sy,ex,ey;
@@ -30,9 +31,10 @@ int main()
 	scanf("%d %d %d %d",&sx,&sy,&ex,&ey);
 	for(int i = 1; i <= n; i++)
 	{
+		scanf("%s",data[i] + 1);
 		for(int j = 1; j <= n; j++)
 		{
-			scanf("%d",&data[i][j]);
+			data[i][j] -= '0';
 		}
 	}
 	queue <node> que1;
