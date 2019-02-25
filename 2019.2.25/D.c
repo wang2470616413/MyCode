@@ -49,24 +49,3 @@ int main()
 	return 0;
 }
 
-int count1(int mark)
-{
-	int res = -1;
-	for(int i = 1; i <= n; i++)if(data[i].num > 0)
-	{
-		int res1 = data[i].k > mark  ? data[i].k - mark : data[i].k + n - mark;	
-		int temp = data[i].num - 1;
-		int temp1 = i == 1 ? n : i;
-		int num2 = (data[i].k + n + 1 - mark) % n;
-		int num3 = (i + n + 1 - mark) % n;
-		num2 = num2 == 0 ? n : num2;
-		num3 = num3 == 0 ? n : num3;
-		if(i != mark && num2 != 1 && num2 < num3)
-		{
-			temp++;
-		}
-		res1 += temp * n;
-		res = max(res, res1);
-	}
-	return res;
-}
