@@ -24,10 +24,5 @@ int main()
 	reverse(data4.begin(),data4.end());//将[data4.begin().data4.end())倒置
 	iter index1 = find(data4.begin(),data4.end(),4);//在区间[data4.begin(),data4.end())查找4,并返回迭代器
 	cout<<*index1<<endl;
-	
-
-
-
-
 	return 0;
 }
