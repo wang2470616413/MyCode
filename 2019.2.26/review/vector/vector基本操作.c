@@ -17,7 +17,7 @@ int main()
 	data4.pop_back();//删掉最后一个元素
 	data4.push_back(3);//往尾部插入一个元素3
 	data4.insert(data4.begin() + 3,5);//将5插入到data4.begin() + 3位置上
-	data4.insert(data4.begin() + 3,3,5); //将3哥5插入到data4.begin() + 3位置上
+	data4.insert(data4.begin() + 3,3,5); //将3个5插入到data4.begin() + 3位置上
 	data4.insert(data4.begin() + 3,data + 1,data + 9);//将data + 1 到 data + 9之间的内容插入到data4.begin()+4位置上
 //<algorithm>关于vector的操作
 	sort(data4.begin(),data4.end());//将[data4.begin(),data4.end())排序
