@@ -4,13 +4,13 @@
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
-const int N = 12;
-int dp[N][1 << N];
+const int N = 13;
+ll dp[N][1 << N];
 int h, w;
 void dfs(int j, int si, int state,int nstate);
 int main()
 {
-	while(~scanf("%d %d",&h,&w) && (h + w))
+	while(scanf("%d %d",&h,&w) && (h + w))
 	{
 		mmset(dp,0);
 		dp[1][0] = 1;
@@ -21,7 +21,7 @@ int main()
 				dfs(0,i,j,0);
 			}
 		}
-		printf("%d\n",dp[h + 1][0]);
+		printf("%lld\n",dp[h + 1][0]);
 
 	}
 	return 0;
@@ -40,12 +40,12 @@ void dfs(int j, int si, int state,int nstate)
 		if(!(temp & state))
 		{
 			dfs(j +1, si,state,temp | nstate);
-			if(!(temp1 & state) &&j + 1 < w)
+			if((!(temp1 & state)) &&j + 1 < w)
 			{
 				dfs(j + 2,si,state,nstate);
 			}
 		}
-		else if(temp1 & state)
+		if(temp & state)
 		{
 			dfs(j + 1, si, state,nstate);
 		}
