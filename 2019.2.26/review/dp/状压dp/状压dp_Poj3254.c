@@ -5,7 +5,6 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 13;
-
 const int MOD = 100000000;
 ll dp[N][1 << N];
 int n,m;
