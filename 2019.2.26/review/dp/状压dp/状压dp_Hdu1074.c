@@ -19,7 +19,7 @@ struct PATH
 int dp[1 << N + 10];
 int cost[1 << N  + 10];
 node data[N + 5];
-PATH path[N];
+PATH path[1 << N + 10];
 int n;
 int fun1(int num);
 void printfPath(int  p);
