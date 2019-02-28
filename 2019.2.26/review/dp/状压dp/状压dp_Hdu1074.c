@@ -12,11 +12,17 @@ struct node
 	string str;
 	int a,b;
 };
+struct PATH
+{
+	int pstate, id;
+};
 int dp[1 << N + 10];
 int cost[1 << N  + 10];
 node data[N + 5];
-int path[N];
+PATH path[N];
 int n;
+int fun1(int num);
+void printfPath(int  p);
 int main()
 {
 	int T;
@@ -42,14 +48,16 @@ int main()
 					nconst = nconst < 0 ? 0: nconst;
 					if(dp[temp| i] > dp[i] + nconst)
 					{
-						path[j] = 
+						path[temp | i].pstate = i;
+						path[temp | i].id =  j;
 						dp[temp | i] = dp[i] + nconst;
 						cost[temp | i] = cost[i] + data[j].b;
 					}
 				}
 			}
 		}
-		printf("%d\n",dp[(1 << n) - 1]);
+		cout<<dp[(1 << n) - 1]<<endl;
+		printfPath((1 << n) - 1);
 
 	}
 
@@ -58,4 +66,27 @@ int main()
 
 
 	return 0;
+}
+int fun1(int num)
+{
+	int countx = 0;
+	while(num)
+	{
+		countx++;
+		num = num & (num - 1);
+	}
+	return countx;
+}
+
+void printfPath(int p)
+{
+	if(p == 0)
+	{
+		return;
+	}
+	else 
+	{
+		printfPath(path[p].pstate);
+		cout<<data[path[p].id].str<<endl;
+	}
 }
