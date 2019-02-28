@@ -10,10 +10,25 @@ struct node
 	node* next;
 };
 void insertList(node* first,int index,node value);
+void printfList(node* first);
 
 int main()
 {
 
+	node* data;
+	data->next = NULL;
+	int n;
+	scanf("%d",&n);
+	for(int i = 0; i < n; i++)
+	{
+		int a,b;
+		scanf("%d %d",&a, &b);
+		node temp ;
+		temp.id = a;
+		temp.age = b;
+		insertList(data,i,temp);
+	}
+	printfList(data);
 
 
 
@@ -34,4 +49,13 @@ void insertList(node* first,int index,node value)
 	temp->age = value.age;
 	temp->next = key->next;
 	key->next = temp->next;
+}
+void printfList(node* first)
+{
+	node* temp = first->next;
+	while(temp != NULL)
+	{
+		printf("%d %d\n",temp->id,temp->age);
+		temp = temp->next;
+	}
 }
