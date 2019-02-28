@@ -6,7 +6,7 @@
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
-const int N = 15;
+const int N = 16;
 struct node
 {
 	string str;
@@ -16,10 +16,10 @@ struct PATH
 {
 	int pstate, id;
 };
-int dp[1 << N + 10];
-int cost[1 << N  + 10];
+int dp[1 << N];
+int cost[1 << N];
 node data[N + 5];
-PATH path[1 << N + 10];
+PATH path[1 << N];
 int n;
 int fun1(int num);
 void printfPath(int  p);
