@@ -15,7 +15,7 @@ void printfList(node* first);
 int main()
 {
 
-	node* data;
+	node* data = new node();
 	data->next = NULL;
 	int n;
 	scanf("%d",&n);
@@ -43,12 +43,13 @@ void insertList(node* first,int index,node value)
 	while(i <= index)
 	{
 		key = key->next;
+		i++;
 	}
 	node* temp = new node();
 	temp->id = value.id;
 	temp->age = value.age;
 	temp->next = key->next;
-	key->next = temp->next;
+	key->next = temp;
 }
 void printfList(node* first)
 {
