@@ -24,7 +24,7 @@ int main()
 		p_son[data[i][0]].push_back(i);
 		sum += data[i][1];
 	}
-	if(sum % 3 == 0 || sum == 0)
+	if(sum % 3 == 0 &&  sum != 0)
 	{
 		key = sum /3;
 		dfs(0);
