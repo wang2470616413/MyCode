@@ -53,24 +53,15 @@ int main()
 }
 int dfs(int par)
 {
-	if(mark[par] == 0)
+	int sum = data[par][1];
+	for(int i = 0; i < p_son[par].size(); i++)	
 	{
-		return data[par][1];
+		sum += dfs(p_son[par][i]);	
 	}
-	else 
+	if(sum == key)
 	{
-		int sum = data[par][1];
-		for(int i = 0; i < p_son[par].size(); i++)	
-		{
-			sum += dfs(p_son[par][i]);	
-		}
-		if(sum == key)
-		{
-			res.push_back(par);
-			return 0;
-		}	
-		return sum;
-	}
-
-
+		res.push_back(par);
+		return 0;
+	}	
+	return sum;
 }
