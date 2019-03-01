@@ -53,6 +53,6 @@ ll dfs(int p)
 		mark[data[p][i]] = 1;
 		sum += dfs(data[p][i]);
 	}
-	res = (res + ((sum % MOD) * ((n * m - sum)) % MOD)) % MOD;
+	res = (res + (sum * (n * m - sum)) % MOD) % MOD;
 	return sum;
 }
