@@ -27,7 +27,7 @@ int main()
 	for(int i = 1; i <= m - 1; i++)
 	{
 		int a,b,c,d;
-		scanf("%d %d %d %d",&a,&b,&c,&d);
+		scanf("%d %d %d %d",&a,&c,&b,&d);
 		addEdge(i + 1,n);
 		data[(a - 1) * n + b].push_back((c - 1) * n + d);
 		data[(c - 1) * n + d].push_back((a - 1) * n + b);
