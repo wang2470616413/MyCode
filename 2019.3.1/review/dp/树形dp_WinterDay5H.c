@@ -12,7 +12,7 @@ vector <int> data[N];
 int map1[1010][2];
 int mark[N];
 int n,m;
-void addEdge(int k,int n,int a,int b,int c,int d);
+void addEdge(int k,int n);
 ll dfs(int p);
 int main()
 {
@@ -28,22 +28,22 @@ int main()
 	{
 		int a,b,c,d;
 		scanf("%d %d %d %d",&a,&b,&c,&d);
-		addEdge(c,n,a,b,c,d);
+		addEdge(i + 1,n);
+		data[(a - 1) * n + b].push_back((c - 1) * n + d);
+		data[(c - 1) * n + d].push_back((a - 1) * n + b);
 	}
 	mark[1] = 1;
 	dfs(1);
 	printf("%lld\n",res % MOD);
 	return 0;
 }
-void addEdge(int k,int n,int a,int b,int c,int d)
+void addEdge(int k,int n)
 {
 	for(int i = 1; i <= n - 1; i++)
 	{
 		data[(k - 1) * n + map1[i][0]].push_back((k - 1) * n + map1[i][1]);
 		data[(k - 1) * n + map1[i][1]].push_back((k - 1) * n + map1[i][0]);
 	}
-	data[(a - 1) * n + b].push_back((c - 1) * n + d);
-	data[(c - 1) * n + d].push_back((a - 1) * n + b);
 }
 ll dfs(int p)
 {
