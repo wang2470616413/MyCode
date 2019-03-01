@@ -66,7 +66,7 @@ int dfs(int par)
 		}
 		if(sum == key)
 		{
-			res.push_back(sum);
+			res.push_back(data[par][0]);
 			return 0;
 		}	
 		return sum;
