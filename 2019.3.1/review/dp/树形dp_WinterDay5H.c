@@ -13,7 +13,7 @@ int map1[1010][2];
 int mark[N];
 int n,m;
 void addEdge(int k,int n,int a,int b,int c,int d);
-int dfs(int p);
+ll dfs(int p);
 int main()
 {
 	scanf("%d %d",&n,&m);
@@ -45,14 +45,14 @@ void addEdge(int k,int n,int a,int b,int c,int d)
 	data[(a - 1) * n + b].push_back((c - 1) * n + d);
 	data[(c - 1) * n + d].push_back((a - 1) * n + b);
 }
-int dfs(int p)
+ll dfs(int p)
 {
-	int sum = 1;
+	ll sum = 1;
 	for(int i = 0; i < data[p].size(); i++)if(mark[data[p][i]] == 0) 
 	{
 		mark[data[p][i]] = 1;
 		sum += dfs(data[p][i]);
 	}
-	res = res + (sum * (n * m - sum)) % MOD;
+	res = (res + ((sum % MOD) * ((n * m - sum)) % MOD)) % MOD;
 	return sum;
 }
