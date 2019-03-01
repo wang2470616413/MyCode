@@ -10,7 +10,7 @@ int data[N], data1[N];
 int aux[N];
 int num[N], mark[N];
 int n,m;
-int dfs(int p);
+void dfs(int p);
 int main()
 {
 	scanf("%d %d",&n,&m);
@@ -43,17 +43,17 @@ int main()
 
 	return 0;
 }
-int dfs(int p)
+void dfs(int p)
 {
 	if(mark[p] == 1)
 	{
-		return 0;	
+		return ;	
 	}
 	else if(data1[p] == p)
 	{
 		mark[p] = 1;
 		aux[p] += data[p];
-		return 0;
+		return ;
 	}
 	else 
 	{
