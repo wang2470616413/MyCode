@@ -25,6 +25,7 @@ void merge(int x, int y)
 int main()
 {
 	scanf("%d %d",&n,&m);
+	m = m > n ? n : m;
 	mmset(aux,0);
 	for(int i = 1; i <= n; i++)
 	{
@@ -53,8 +54,5 @@ int main()
 		res += aux[i];
 	}
 	printf("%lld\n",res);
-	
-
-
 	return 0;
 }
