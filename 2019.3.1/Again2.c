@@ -6,10 +6,12 @@
 using namespace std;
 const int N = 1e5 + 10;
 int data[N], pre[N], n,m;
-int mark[N], father[N];
+int  father[N];
+ll aux[N];
+ll res = 0;
 int find(int x)
 {
-	return father[x] == x ? x : find(father[x]);
+	return father[x] = father[x] == x ? x : find(father[x]);
 }
 void merge(int x, int y)
 {
@@ -23,6 +25,7 @@ void merge(int x, int y)
 int main()
 {
 	scanf("%d %d",&n,&m);
+	mmset(aux,0);
 	for(int i = 1; i <= n; i++)
 	{
 		father[i] = i;
@@ -38,8 +41,19 @@ int main()
 	}
 	for(int i = 1; i <= n; i++)
 	{
-		printf("%d %d\n",i,father[i]);
+		find(i);
 	}
+	for(int i = 1; i <= n; i++)
+	{
+		aux[father[i]] += data[i];
+	}
+	sort(aux + 1, aux + 1 + n);
+	for(int i = n; i > n - m; i--)
+	{
+		res += aux[i];
+	}
+	printf("%lld\n",res);
+	
 
 
 	return 0;
