@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<algorithm>
-#include<vector>
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
@@ -14,49 +13,43 @@ int main()
 {
 	mmset(mark,0);
 	scanf("%d",&n);
-	vector <int> aux;
 	for(int i = 1; i <= n; i++)
 	{
 		scanf("%d",&data[i]);
 		mark[data[i]] ++;
-		if(mark[data[i]] == 1)
-		{
-			aux.push_back(data[i]);
-		}
-
 	}
 	int res = 0; 
-	for(int i = 0; i < aux.size() - 1; i++)
+	for(int i = 0; i < n - 1; i++)
 	{
-		for(int j = i + 1; j < aux.size(); j++)
+		for(int j = i + 1; j < n; j++)
 		{
-			int a = aux[i],  b = aux[j];
+			int a = data[i],  b = data[j];
 			int sum = a + b;
 			int num = 0;
 			mmset(mark1,0);
-			for(int k = 0; k < aux.size(); k++)
+			for(int k = 0; k < n; k++)
 			{
-				mark1[aux[k]] = mark[aux[k]];
+				mark1[mark[k]] = mark[mark[k]];
 			}
-			for(int k = 0; k < aux.size(); k++)if(aux[k] != sum && sum - aux[k] != sum)
+			for(int k = 0; k < n; k++)if(data[k] != sum )
 			{
-				if(aux[k] < sum )
+				if(data[k] > sum )
 				{
 					continue;
 				}
 				if(sum % 2 == 0)
 				{
-					if(aux[k] == sum / 2)
+					if(data[k] == sum / 2)
 					{
 						continue;
 					}
 				}
 				int temp1 = num;
-				num += min(mark1[aux[k]],mark1[sum - aux[k]]);
+				num += min(mark1[data[k]],mark1[sum - data[k]]);
 				if(num != temp1)
 				{
-					mark1[aux[k]] = mark1[aux[k]] >= 1 ? mark1[aux[k]] - 1 : 0;
-					mark1[sum - aux[k]] = mark1[sum - aux[k]] >= 1 ? mark1[sum - aux[k]] - 1 : 0;
+					mark1[data[k]] = mark1[data[k]] >= 1 ? mark1[data[k]] - 1 : 0;
+					mark1[sum - data[k]] = mark1[sum - data[k]] >= 1 ? mark1[sum - data[k]] - 1 : 0;
 				}
 			}
 			res = max(res,num);
