@@ -29,7 +29,7 @@ int main()
 			mmset(mark1,0);
 			for(int k = 0; k < n; k++)
 			{
-				mark1[mark[k]] = mark[mark[k]];
+				mark1[data[k]] = mark[data[k]];
 			}
 			for(int k = 0; k < n; k++)if(data[k] != sum )
 			{
