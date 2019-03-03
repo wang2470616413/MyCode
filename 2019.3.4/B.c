@@ -40,6 +40,10 @@ int main()
 			}
 			for(int k = 0; k < aux.size(); k++)if(aux[k] != sum && sum - aux[k] != sum)
 			{
+				if(aux[k] < sum )
+				{
+					continue;
+				}
 				if(sum % 2 == 0)
 				{
 					if(aux[k] == sum / 2)
@@ -59,8 +63,5 @@ int main()
 		}
 	}
 	printf("%d\n",res);
-
-
-
 	return 0;
 }
