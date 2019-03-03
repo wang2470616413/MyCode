@@ -18,9 +18,9 @@ int main()
 	{
 		int num = 0;
 		scanf("%s",str);
-		for(int j = 0; j < m; j++)
+		for(int j = 0; j < m; j++)if(str[j] == '1')
 		{
-			num |= ((str[j] - '0') << m);
+			num |= (1 << j);
 		}
 		que.push(num);
 		dis[num] = 0;
@@ -31,7 +31,7 @@ int main()
 		que.pop();
 		for(int i = 0; i < m; i++)
 		{
-			int next = front ^ (1 << m);
+			int next = front ^ (1 << i);
 			if(dis[next] > dis[front] + 1)
 			{
 				dis[next] = dis[front] + 1;
