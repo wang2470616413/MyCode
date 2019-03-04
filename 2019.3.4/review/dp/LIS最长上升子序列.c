@@ -17,7 +17,7 @@ int main()
 	{
 		scanf("%d",&data[i]);
 	}	
-	dp[1] = 1;
+	fill(dp, dp + 1 + n,1);
 	mmset(path,0);
 	for(int i = 2;i <= n; i++)
 	{
@@ -33,7 +33,7 @@ int main()
 			}
 		}
 	}
-	int res = 0;
+	int res = 1;
 	int u;
 	for(int i = 1; i <= n; i++)
 	{
