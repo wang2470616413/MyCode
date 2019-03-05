@@ -14,27 +14,14 @@ int main()
 	}
 	else 
 	{
-		if(c % 2 == 0)
+		if(a == d)
 		{
-			int temp = c /2;
-			if(a - temp < 0 || d - temp < 0)
-			{
-				printf("0\n");
-			}
-			else if(a - temp != d - temp) 
-			{
-				printf("0\n");
-			}
-			else 
-			{
-				printf("1\n");
-			}
+			printf("1\n");
 		}
 		else 
 		{
 			printf("0\n");
 		}
-
 	}
 
 
