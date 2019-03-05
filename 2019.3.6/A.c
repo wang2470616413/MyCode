@@ -6,8 +6,8 @@
 using namespace std;
 int main()
 {
-	int a,b,c,d;
-	scanf("%d %d %d %d",&a,&b,&c,&d);
+	ll a,b,c,d;
+	scanf("%lld %lld %lld %lld",&a,&b,&c,&d);
 	if(a + b +  c + d == 0)
 	{
 		printf("0\n");
