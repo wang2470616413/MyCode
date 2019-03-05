@@ -1,10 +1,32 @@
 #include<stdio.h>
 #include<string.h>
-#include<stack>
+//#include<stack>
 #include<algorithm>
 #define ll long long 
 #define mmse(a,b) memset(a,b,sizeof(a))
 using namespace std;
+struct stack 
+{
+	int data[1000];
+	int len = 0;
+	void push(int num)
+	{
+		data[len] = num;
+		len++;
+	}
+	void pop()
+	{
+		len--;
+	}
+	int top()
+	{
+		return data[len - 1];
+	}
+	int size()
+	{
+		return len;
+	}
+};
 int path[100];
 void printhPath(int p);
 void printhPath1(int p);
@@ -31,7 +53,7 @@ void printhPath(int p)
 }
 void printhPath1(int p)
 {
-	stack <int> sta;
+	stack  sta;
 	while(p != 0)
 	{
 		sta.push(p);
