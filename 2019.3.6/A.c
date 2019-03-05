@@ -16,9 +16,16 @@ int main()
 	{
 		if(a == d)
 		{
-			if(a == 0)
+			if(a  == 0)
 			{
-				printf("0\n");
+				if(b > 0 && c ==0)
+				{
+					printf("1\n");
+				}
+				else 
+				{
+					printf("0\n");
+				}
 			}
 			else 
 			{
