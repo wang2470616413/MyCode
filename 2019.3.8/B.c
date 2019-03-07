@@ -7,30 +7,32 @@ using namespace std;
 const int N = 2e5 + 5;
 int  data[N];
 int mark[N];
-int n,m;
+int mark1[N];
+int n,k;
 int main()
 {
 	mmset(mark,0);
-	scanf("%d %d",&n,&m);
+	scanf("%d %d",&n,&k);
 	for(int i = 1; i <= n; i++)
 	{
 		scanf("%d",&data[i]);
+		data[i] %= k;
+		mark[data[i]]++;
 	}
 	int res = 0;
-	for(int i = 1; i < n; i++)if(mark[i] == 0)
+	for(int i = 1; i < k; i++)if(mark1[i] == 0)
 	{
-		
-		for(int j = i + 1; j <= n; j++)if(mark[j] == 0)
+		if(i == k - i)
 		{
-			ll temp = data[i] + data[j];
-			if(temp % m == 0 && trmp != 0))
-			{
-				mark[j] = 1;
-				res++;
-				break;
-			}
+			res += (mark[i] / 2);
 		}
+		else 
+		{
+			res += min(mark[i] , mark[k - i]);
+		}
+		mark1[k - i] = 1;
 	}
+	res += mark[0] / 2;
 	printf("%d\n",res * 2);
 
 
