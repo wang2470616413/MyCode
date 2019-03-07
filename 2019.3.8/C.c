@@ -28,9 +28,10 @@ int main()
 		}
 		else 
 		{
-			i = j + 1;
+			i++;
 			ans = max(ans,res);
-			res = 0;
+			res = res - 1;
+			j--;
 		}
 		j++;
 	}
