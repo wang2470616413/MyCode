@@ -5,7 +5,7 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 2e5 + 5;
-ll  data[N];
+int  data[N];
 int mark[N];
 int n,m;
 int main()
@@ -14,7 +14,7 @@ int main()
 	scanf("%d %d",&n,&m);
 	for(int i = 1; i <= n; i++)
 	{
-		scanf("%lld",&data[i]);
+		scanf("%d",&data[i]);
 	}
 	int res = 0;
 	for(int i = 1; i < n; i++)if(mark[i] == 0)
@@ -22,7 +22,8 @@ int main()
 		
 		for(int j = i + 1; j <= n; j++)if(mark[j] == 0)
 		{
-			if((data[i] + data[j]) % m == 0 && (data[i] + data[j] != 0))
+			ll temp = data[i] + data[j];
+			if(temp % m == 0 && trmp != 0))
 			{
 				mark[j] = 1;
 				res++;
