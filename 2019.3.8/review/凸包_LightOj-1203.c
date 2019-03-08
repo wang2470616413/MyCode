@@ -74,7 +74,6 @@ int main()
 			for(int i = 1; i <= len; i++ )
 			{
 				double key = GetAng(res[i-1],res[i+1],res[i]);
-				key = key > 90.0 ? 180.0 - key : key;
 				ans =  min(key,ans);
 			}
 		}
@@ -157,5 +156,5 @@ double GetAng(node a,node b,node c)
 	p1.x = x1, p1.y = y1, p2.x = x2, p2.y = y2;
 	double temp = atan2(fabs(p1.x * p2.y - p1.y * p2.x),(p1.x * p2.x + p1.y * p2.y));
 	temp = fabs(temp);
-	return temp * PI / 180.0;
+	return temp * (180.0 / PI);
 }
