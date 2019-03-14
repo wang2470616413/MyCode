@@ -15,6 +15,7 @@ void init(int a, int b, int c)
 		weight[i] = c;
 	}
 }
+
 int find(int x)
 {
 	if(x != father[x])
