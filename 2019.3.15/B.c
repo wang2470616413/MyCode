@@ -5,23 +5,23 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const ll MOD =  100000007;
-int mark[2000005];
+//int mark[2000005];
 int n;
 int main()
 {
-	scanf("%d",&n);
-	ll sum = 0;
-	for(int i = 1; i <= n; i++)
+	ll a;
+	scanf("%d %lld",&n,&a);
+	ll sum = a;
+	for(int i = 2; i <= n; i++)
 	{
-		int b;
-		scanf("%d",&b);
-		if(mark[b] == 0)
-		{
-			sum += b;
-			sum %= MOD;
-			mark[b] = 1;
-		}
+		ll  b;
+		scanf("%lld",&b);
+		sum += b;
+		sum %= MOD;
+		a = a ^ b;
 	}
+	sum += a;
+	sum %= MOD;
 	printf("%lld\n",sum);
 
 
