@@ -5,6 +5,7 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const ll MOD =  100000007;
+int mark[2000005];
 int n;
 int main()
 {
@@ -12,10 +13,14 @@ int main()
 	ll sum = 0;
 	for(int i = 1; i <= n; i++)
 	{
-		ll b;
-		scanf("%lld",&b);
-		sum += b;
-		sum %= MOD;
+		int b;
+		scanf("%d",&b);
+		if(mark[b] == 0)
+		{
+			sum += b;
+			sum %= MOD;
+			mark[b] = 1;
+		}
 	}
 	printf("%lld\n",sum);
 
