@@ -4,7 +4,7 @@
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
-const int N = 55, M=  105;
+const int N = 55, M =  100005;
 struct node 
 {
 	int a,b,w;
