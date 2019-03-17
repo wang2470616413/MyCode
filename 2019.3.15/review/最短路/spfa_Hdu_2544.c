@@ -43,10 +43,9 @@ int main()
 			addEdge(a,b,c,len);
 			addEdge(b,a,c,len);
 		}	
-		mmset(dis,0x3f3f3f3f);
+		mmset(dis,0x3f);
 		mmset(mark,0);
 		mark[1] = 1;
-		dis[1] = 0;
 		queue <int> que;
 		que.push(1);
 		while(!que.empty())
