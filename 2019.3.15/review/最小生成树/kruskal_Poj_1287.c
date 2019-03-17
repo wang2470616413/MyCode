@@ -58,26 +58,26 @@ int main()
 			scanf("%d %d %d",&a,&b,&c);
 			edges[i] = node(a,b,c);
 		}
-	}
-	sort(edges + 1, edges + 1 + m);
-	int num = 0;
-	int res = 0;
-	for(int i = 1; i <= m; i++)
-	{
-		if(num == n)
+		sort(edges + 1, edges + 1 + m);
+		int num = 0;
+		int res = 0;
+		for(int i = 1; i <= m; i++)
 		{
-			break;
+			if(num == n - 1)
+			{
+				break;
+			}
+			int a = edges[i].a;
+			int b = edges[i].b;
+			int w = edges[i].w;
+			if(find(a) != find(b))
+			{
+				res += w;
+				num++;
+			}
+			merge(a,b);
 		}
-		int a = find(edges[i].a);
-		int b = find(edges[i].b);
-		int w = find(edges[i].w);
-		if(find(a) != find(b))
-		{
-			res += w;
-			num++;
-		}
-		merge(a,b);
+		printf("%d\n",res);
 	}
-	printf("%d\n",res);
 	return 0;
 }
