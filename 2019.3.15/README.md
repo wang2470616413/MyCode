@@ -1,0 +1,11 @@
+# [**牛客网练习赛42**](https://ac.nowcoder.com/acm/contest/393/C)
+## [A简单思维](https://ac.nowcoder.com/acm/contest/393/A)
+## [B数论(我是猜的题解)](https://ac.nowcoder.com/acm/contest/393/B)
+## [C代做](https://ac.nowcoder.com/acm/contest/393/C)
+# [复习简单图论](https://blog.csdn.net/u013377068/article/category/7654984)
+## 最小生成树
+### [prim_POJ_1287](https://vjudge.net/problem/POJ-1287)
+### [kruskal_POJ_1287](https://vjudge.net/problem/POJ-1287)
+## 最短路
+### [dijkstra_HDU_2544](https://vjudge.net/problem/HDU-2544)
+### [spfa_HDU_2544](https://vjudge.net/problem/HDU-2544)
