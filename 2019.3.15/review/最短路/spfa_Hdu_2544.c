@@ -53,7 +53,7 @@ int main()
 		{
 			int front = que.front();
 			que.pop();
-			mark[front] = 1;
+			mark[front] = 0;
 			for(int i = head[front]; i != -1; i = edges[i].next)
 			{
 				int to = edges[i].to;
@@ -70,11 +70,5 @@ int main()
 		}
 		printf("%d\n",dis[n]);
 	}
-
-
-
-
-
-
 	return 0;
 }
