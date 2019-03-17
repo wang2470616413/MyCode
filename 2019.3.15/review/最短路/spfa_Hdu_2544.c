@@ -6,7 +6,7 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 1005;
-const int M = 1005;
+const int M = 10005;
 struct node
 {
 	int to,w,next;
