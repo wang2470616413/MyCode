@@ -32,7 +32,7 @@ void addEdge(int a, int b, int c,int& t)
 int n,m;
 int main()
 {
-	while(scanf("%d %d",&n,&m) && n + m != 0)
+	while(~scanf("%d %d",&n,&m) && n + m != 0)
 	{
 		int len = 1;
 		mmset(head,-1);
@@ -46,6 +46,7 @@ int main()
 		mmset(dis,0x3f);
 		mmset(mark,0);
 		mark[1] = 1;
+		dis[1] = 0;
 		queue <int> que;
 		que.push(1);
 		while(!que.empty())
