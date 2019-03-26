@@ -4,6 +4,7 @@
 #include<math.h>
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
+
 using namespace std;
 const int Nh = 12 * 3600;
 const int Nm = 3600;
