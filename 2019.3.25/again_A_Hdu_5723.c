@@ -6,9 +6,11 @@
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
 const int N = 100005, M = 1000005;
+
 struct node
 {
-	int a,b,w;
+	int a,b;
+	int w;
 	node()
 	{
 
@@ -19,26 +21,37 @@ struct node
 		b = p_b;
 		w = p_w;
 	}
-	bool operator < (const node two) 
+};
+struct edge
+{
+	int to,w;
+	edge(int p_to,int p_w)
 	{
-		return w < two.w;
+		to = p_to;
+		w = p_w;
 	}
 };
-vector <node> tree[N];
-node data[N];
+bool cmp(node a,node b)
+{
+	return a.w < b.w;
+}
+vector <edge> tree[N];
+node data[M];
 int father[N];
-int mark[N],res = 0, sumFree = 0;
+int mark[N];
+ll res = 0, sumFree = 0;
 int n ,m;
 void init(int a, int b)
 {
-	for(int i = a; i <= b; i++)
+	for(int i = 0; i <= b; i++)
 	{
+		tree[i].clear();
 		father[i] = i;
 	}
 }
 int find(int x)
 {
-	return father[x] == x ? x : find(father[x]);
+	return father[x] = father[x] == x ? x : find(father[x]);
 }
 void merge(int x, int y)
 {
@@ -52,7 +65,7 @@ void merge(int x, int y)
 void krusual(int a, int b)
 {
 	init(a,b);
-	sort(data + 1, data + 1 + m);
+	sort(data + 1, data + 1 + m,cmp);
 	int num = 1;
 	for(int i = 1; i <= m; i++)
 	{
@@ -60,47 +73,51 @@ void krusual(int a, int b)
 		int fy = find(data[i].b);
 		if(fx != fy)
 		{
-			num++;
 			merge(data[i].a,data[i].b);
 			sumFree += data[i].w;
-			tree[data[i].a].push_back(node(data[i].a,data[i].b,data[i].w));
-			tree[data[i].b].push_back(node(data[i].b,data[i].a,data[i].w));
-			if(num == n + 1)
-			{
-				break;
-			}
+			tree[data[i].a].push_back(edge(data[i].b,data[i].w));
+			tree[data[i].b].push_back(edge(data[i].a,data[i].w));
+
 		}
 	}
-
 }
 int dfs(int now,int w)
 {
-	if(tree[now].size() == 1)	
+	int temp = 0;
+	for(int i = 0; i < tree[now].size(); i++)if(mark[tree[now][i].to] == 0)
 	{
-		res += (1 * (n-2) * w);
-		return  1;
+		mark[tree[now][i].to] = 1;
+		temp += dfs(tree[now][i].to,tree[now][i].w);
 	}
-	else 
-	{
-		int temp = 0;
-		for(int i = 0; i < tree[now].size(); i++)if(mark[tree[now][i].b] == 0)
-		{
-			mark[tree[now][i].b] = 1;
-			temp += dfs(tree[now][i].b,tree[now][i].w);
-		}
-		res += (temp * (n - 1 - temp) * w);
-		return temp;
-	}
+	res += (1.0 * (temp + 1) * (n - 1 - temp) * w);
+	return temp + 1;
 }
+
+/*int dfs(int x)
+{
+    int cnt=0;
+    for(int i=0;i<tree[x].size();i++)if(mark[tree[x][i].to] == 0)
+    {
+        int y=tree[x][i].to,value=tree[x][i].w;
+        mark[y] = 1;
+
+        int now=dfs(y);
+        cnt+=now;
+        res+=1.0*now*(n-now)*value;
+
+    }
+    return cnt+1;
+}
+*/
 double count1()
 {
 	mmset(mark,0);
+	mark[1] = 1;
 	res = 0;
 	dfs(1,0);
 	double fa = (double)res;
 	double fb = (n * 1.0) * ((n - 1) * 1.0) / 2.0;
 	return fa / fb;
-	
 }
 int main()
 {
@@ -108,6 +125,7 @@ int main()
 	scanf("%d",&T);
 	while(T--)
 	{
+		sumFree = 0;
 		scanf("%d %d",&n,&m);
 		for(int i = 1; i <= m; i++)
 		{
@@ -115,12 +133,8 @@ int main()
 		}
 		krusual(1,n);
 		double res0 = count1();
-		printf("%d\n",sumFree);
+		printf("%lld %.2lf\n",sumFree,res0);
 		
 	}
-
-
-
 	return 0;
 }
-
