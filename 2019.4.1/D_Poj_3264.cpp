@@ -28,10 +28,6 @@ int main()
 		scanf("%d %d",&a,&b);
 		printf("%d\n",RMQMax(a,b) - RMQMin(a,b));
 	}
-	
-	
-	
-	
 	return 0;
 }
 void STMax()
@@ -76,9 +72,7 @@ int RMQMin(int i, int j)
 	if(i > j)
 	return 0; 
 	int k = 0;
-	
 	while((1<<(k + 1)) <= j -i +1)k++;			
-	
 	return min(dpMin[i][k], dpMin[j - (1 << k) + 1][k]);
 	
 }
