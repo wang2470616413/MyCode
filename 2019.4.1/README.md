@@ -17,6 +17,6 @@
 ### &emsp;最短路，要求输出最短路树上的k条边。本题边数较多可以用dijkstra
 ### &emsp;+ 链式前向星 + 优先队列。我们可以在求最短路的过程中找到k条边即可，
 ### &emsp;这两段代码就是实现该过程的代码
-### &emsp;`69 ans.push_back(pre[u]])`
-### &emsp;`72 pre[edges[j].to] = (j + 1) / 2`
+### &emsp;`69行: ans.push_back(pre[u]])`
+### &emsp;`72行: pre[edges[j].to] = (j + 1) / 2`
 
