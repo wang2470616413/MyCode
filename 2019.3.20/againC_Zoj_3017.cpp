@@ -36,26 +36,29 @@ int main()
 			}
 		}
 		mmset(dp,0x3f);
-		dp[z][1][0] = 0;
-		for(int k = 1; k <= z; k++)
+		dp[z][1][1] = 0; 
+		for(int k = z; k >= 0; k--)
 		{
 			for(int j = 1; j <= n; j++)
 			{
 				for(int i = 1; i <= m; i++)
 				{
-					for(int q = 1; q <= m; q++)if(k >= data[q][i])
+					for(int q = 1; q <= m; q++)if(k + data[q][i] <= z)
 					{
-						 dp[k][i][j] = min(dp[k][i][j],min(dp[k - data[q][i]][q][j],dp[k - data[q][i]][q][j-1] + map1[q][j]));
-						 printf("%d\n",dp[k][i][j]);
+						 dp[k][i][j] = min(dp[k][i][j],min(dp[k + data[q][i]][q][j],dp[k + data[q][i]][q][j-1] + map1[q][j]));
 					}
 				}
 			}
 		}
-		for(int j = 1; j <= z; j++)
+		int res = 0x3f3f3f3f;
+		for(int i = 1; i <= m; i++)
 		{
-			printf("%d ",dp[j][m][n]);
+			for(int j = 0; j <= z; j++)
+			{
+				res = min(res,dp[j][i][n]);
+			}
 		}
-		printf("\n");
+		printf("%d\n",res);
 	}
 	
 	
