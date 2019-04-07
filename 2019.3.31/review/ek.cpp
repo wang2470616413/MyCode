@@ -5,6 +5,8 @@
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
+const int maxn = 1005;
+const int INF = 0x3f3f3f3f;
 struct node
 {
 	int from, to,cap,flow;
@@ -28,7 +30,7 @@ struct EK
 	int p[maxn];
 	void init(int n)
 	{
-		for(int i = 0; i < n; i++
+		for(int i = 0; i < n; i++)
 		{
 			G[i].clear();
 		}
@@ -51,17 +53,17 @@ struct EK
 			queue <int> Q;
 			Q.push(s);
 			a[s] = INF;
-			while(!Q.empty)
+			while(!Q.empty())
 			{
 				int now = Q.front();
 				Q.pop();
-				for(int i = 0; i < G[x].size(); i++)
+				for(int i = 0; i < G[now].size(); i++)
 				{
-					node& e = edges[G[x][i]];
+					node& e = edges[G[now][i]];
 					if(!a[e.to] && e.cap > e.flow)
 					{
-						p[e,to] = G[x][i];
-						a[e.to] = min(a[x],e.cap - e.flow);
+						p[e.to] = G[now][i];
+						a[e.to] = min(a[now],e.cap - e.flow);
 						Q.push(e.to);
 					}
 				}
@@ -83,11 +85,34 @@ struct EK
 		}
 		return flow;
 	}
-}
+};
 
+/*
+6 10 
+0 1 16
+0 2 13
+1 2 10
+2 1 4
+1 3 12
+2 4 14
+3 2 9
+4 3 7
+3 5 20
+4 5 4 
+*/ 
 
 int main()
 {
+	int n,m;
+	scanf("%d %d",&n,&m);
+	EK ek;
+	for(int i = 1; i <= m; i++)
+	{
+		int a,b,c;
+		scanf("%d %d %d",&a,&b,&c);
+		ek.AddEdge(a,b,c);
+	}
+	ek.MaxFlow(0,n-1);
 	
 	
 	
