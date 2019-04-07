@@ -1,34 +1,32 @@
-#include<stdio.h>
-#include<string.h>
-#include<algorithm>
+#include<bits/stdc++.h> 
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
-const double esp = 1e-3;
+const double esp = 1e-12;
+const int INF = 0x7f7f7f7f;
 int main()
 {
-	double n,k,l,m;
-	scanf("%lf %lf %lf %lf",&n,&k,&l,&m);
-	ll a = 1, b = 1000000000000;
-	ll  mid;
-	while(a < b)
+	ll n, m;
+	double k, l;
+	while(cin >> n >> k >> l >> m)
 	{
-		mid = (a + b) / 2;
-	
-		int res = (int(((k * m + mid) / (m + mid) + 0.05 )* 100)) ;
-		if(res <= l*100)
+		ll L = 0, R = INF;
+		double s;
+		if(n == k) s = floor(k * m);
+		else s = floor((k + 0.049999999999) * m);
+		while(L < R)
 		{
-			b = mid;
-		}
-		else 
-		{
-			a = mid + 1;
-		}
+			ll mid = (L + R) >> 1;
+			if(((s + mid) / (m + mid)) < (l + 0.049999999999)) 
+			{
+				R = mid;
+			}
+			else 
+			{
+				L = mid + 1; 
+			}
+		} 
+		cout << L << endl;
 	}
-	printf("%lld\n",mid);
-	
-	
-	
-	return 0;
 }
 
