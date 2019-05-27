@@ -7,6 +7,6 @@
 ### &emsp;需要注意的是如果直接用c++函数pow来求a的b次方是有误差的，所以我们应该
 ### &emsp;手写一个求a的b次方的函数。
 ### &emsp;<font color = red>该题需要注意如下几点</font>
-#### &emsp;&emsp;1. <font color = red> 任何施加于整数的运算的结果，判断其是否溢出都可以用取余来判断</font>
+#### &emsp;&emsp;1. <font color = 	#FF0000> 任何施加于整数的运算的结果，判断其是否溢出都可以用取余来判断</font>
 #### &emsp;&emsp;2. <font color = red> pow运算对于整数来说有误差，消除误差的方法可以自己手写一个这样的函数
 
