@@ -9,5 +9,29 @@
 ### &emsp;<font color = red>该题需要注意如下几点</font>
 #### &emsp;&emsp;1. <font color = 	#FF0000> 任何施加于整数的运算的结果，判断其是否溢出都可以用取余来判断</font>
 #### &emsp;&emsp;2. <font color = red> pow运算对于整数来说有误差，消除误差的方法可以自己手写一个这样的函数</font>
-#### &emsp;&emsp;3. <font color = red> __int128的范围是−170,141,183,460,469,231,731,687,303,715,884,105,728 (${-2^127}$) through 170,141,183,460,469,231,731,687,303,715,884,105,727 (2127 − 1)
+#### &emsp;&emsp;3. <font color = red> __int128的范围是−170,141,183,460,469,231,731,687,303,715,884,105,728 (-2^127) ~ 170,141,183,460,469,231,731,687,303,715,884,105,727 (2^127 − 1),大概是-1e38 ~ 1e38。</font>
+##### &emsp;&emsp;&emsp;以下是__int128的输入输出
+##### &emsp;&emsp;&emsp;&emsp;
+        ```
+        void scan(__int128 &x)
+        {
+            int f = 1;
+            char ch;
+            x = 0;
+            if (ch = getchar() == '-') f = -1;
+            else x += ch - '0';
+            while ((ch == getchar()) >= '0' && ch <= '9')
+                x = x * 10 + ch - '0';
+            x *= f;
+        }
+        void print(__int128 x)
+        {
+            if (!x) return ;
+            if (x < 0) putchar('-'),x = -x;
+            print(x / 10);
+            putchar(x % 10 + '0');
+        }
+        ```
+## Hdu_6288
+
 
