@@ -33,5 +33,7 @@
         }
         ```
 ## Hdu_6288
-
+### &emsp;该题是扫描线的模板题
+### &emsp;
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190527105251811.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTMzNzcwNjg=,size_16,color_FFFFFF,t_70)
 
