@@ -11,12 +11,24 @@ const int N =  1e5 + 5;
 int data[N],hash[N];
 int ls[N * 30], rs[N * 30], tree[N * 30];
 int tot = 0;
-void add(int C,int m,int& rt,int last)
+void add(int p, int C,int l, int r,int& rt,int last)
 {
 	rt = tot++;
 	ls[rt] = ls[last],rs[rt] = rs[last];
 	tree[rt] = tree[last]++;
-	
+    if(l == r)
+    {
+        return;
+    }
+    int m = (l + r) >> 1;
+    if(p <= m)
+    {
+        add(p,C,l,m,ls[rt],ls[rt]);
+    }
+    else
+    {
+        add(p,C,m+1,r,rs[rt],rs[rt]);
+    }
 }
 /*
 12 6
