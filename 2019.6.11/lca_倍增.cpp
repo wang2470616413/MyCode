@@ -66,26 +66,38 @@ int lca(int a, int b)
 		swap(dep[a],dep[b]);
 	}
 	int len = dep[a] - dep[b];
-	
+    int ta = a, tb = b;
+    for(int i = 0; len > 0; i++, len >>= 1)
+    {
+        if(len & 1 == 1)
+        {
+            ta = fa[ta][i];
+        }
+		for(int i = DEP - 1; i >= 0; i--)
+		{
+			if(fa[ta][i] != fa[tb][i])
+			{
+				ta = fa[ta][i];
+				tb = fa[tb][i];
+			}
+		}
+    }
+	return fa[ta][0];
+    
 }
 
 /*
-16 4 1
-1 2
-1 3
+5 5 4
+3 1
 2 4
-2 5
-3 6
-3 7
-5 8
-5 9
-6 10
-8 11
-8 12
-11 13
-11 14
-13 15
-13 16
+5 1
+1 4
+
+2 4
+3 2
+3 5
+1 2
+4 5
 */
 int main()
 {
@@ -99,15 +111,12 @@ int main()
 		addEdge(a,b,1,len);
 		addEdge(b,a,1,len);
 	}
-	bfs(1);
-	for(int i = 1; i <= n; i++)
+	bfs(root);
+	for(int i = 1; i <= k; i++)
 	{
-		printf("%d \t",i);
-		for(int j = 0; j < 8; j++)
-		{
-			printf("%d ",fa[i][j]);
-		 } 
-		 printf("\n");
-	 }
+		int a,b;
+		scanf("%d %d",&a, &b);
+		printf("%d\n",lca(a,b)); 
+	}
 	return 0;
 } 
