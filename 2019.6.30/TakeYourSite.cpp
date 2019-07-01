@@ -35,9 +35,7 @@ int main()
         {
             res1 = (double(m + 1.0)) / (double(2.0 * m));
         }
-        printf("Case #%d: %0.6lf %0.6lf",num++,res0, res1);
-        
-
+        printf("Case #%d: %0.6lf %0.6lf\n",num++,res0, res1);
     }
 
 
