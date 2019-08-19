@@ -34,3 +34,5 @@
 # vim备份
 *.*~
 *.swp
+# 临时文件
+tempCodeRunnerFile.*
