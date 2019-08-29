@@ -81,7 +81,9 @@ void dijstra(int s)
 	}
 }
 int Astart(int s, int e, int k)
-{
+{	
+    if(dis[s] == 0x3f3f3f3f)
+    return -1;
 	priority_queue <point> que;
 	que.push(point(s,0,0));
 	int t = 1;
