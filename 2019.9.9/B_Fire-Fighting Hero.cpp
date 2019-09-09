@@ -5,15 +5,16 @@
 #define ll long long 
 #define mmset(a,b) memset(a,b,sizeof(a))
 using namespace std;
-const int N = 1e3 + 5,M = 5e5 + 2e3;
+const int N = 1e3 + 5,M = 4e6 + 2e3;
 struct node
 {
-	int to,w,next;
+	int to,next;
+	ll w;
 	node()
 	{
 		
 	};
-	node(int _to, int _w, int _next)
+	node(int _to, ll _w, int _next)
 	{
 		to = _to;
 		w = _w;
@@ -22,12 +23,13 @@ struct node
 };
 struct point
 {
-	int p, w;
+	int p;
+	ll w;
 	point()
 	{
 		
 	};
-	point(int _p, int _w)
+	point(int _p, ll _w)
 	{
 		p = _p;
 		w = _w;
@@ -38,7 +40,8 @@ struct point
 	}
 };
 node edges[M];
-int head[N], dis[N];
+int head[N];
+ll dis[N];
 void addEdges(int a, int b, int c, int& len)
 {
 	edges[len] = node(b,c,head[a]);
@@ -69,7 +72,7 @@ void dijstra(int s)
 1 3 2
 1 4 6 
 2 1 1
-2 4 1
+2 4 1 
 3 2 1
 3 4 3
 */
@@ -87,18 +90,19 @@ int main()
 		{
 			scanf("%d",&num);
 			addEdges(ordP,num,0,len);
-			addEdges(num,ordP,0,len);
+		//	addEdges(num,ordP,0,len);
 		}
-		int a,b,w;
+		int a,b;
+		ll w;
 		for(int i = 1;i <= m;i++)
 		{
-			scanf("%d %d %d",&a,&b,&w);
+			scanf("%d %d %lld",&a,&b,&w);
 			addEdges(a,b,w,len);
 			addEdges(b,a,w,len);
 		}
-		ll maxHero = -1, maxTeam = -1;
+		ll maxHero = 0, maxTeam = 0;
 		dijstra(s);
-		for(int i = 1; i <= n; i++)if(dis[i] != 0x3f3f3f3f)
+		for(int i = 1; i <= n; i++)
 		{
 			if(maxHero < dis[i])
 			{
@@ -106,19 +110,15 @@ int main()
 			}
 		}
 		dijstra(ordP);
-		for(int i = 1; i <= n; i++)if(dis[i] != 0x3f3f3f3f)
+		for(int i = 1; i <= n; i++)
 		{
 			if(maxTeam < dis[i])
 			{
 				maxTeam = dis[i];
 			}
 		}
-		printf("%lld\n",maxTeam <= c * maxHero ? maxTeam : c * maxHero);;
-		
+	    if(maxHero <= maxTeam * c) printf("%lld\n", maxHero);
+        else printf("%lld\n", maxTeam);
 	}
-	
-	
-	
-	
 	return 0;
 } 
